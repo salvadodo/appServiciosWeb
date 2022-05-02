@@ -1,0 +1,29 @@
+﻿@model List<serviciosWebDatos.Models.Casas>
+@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>IdCasa</td>
+            <td>Tipo de Casa</td>
+            <td>Ubicación</td>
+            <td>Descripción</td>
+            <td>Dueño</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Casa in Model)
+        {
+            <tr>
+                <td>@Casa.idCasa</td>
+                <td>@Casa.tipodeCasa</td>
+                <td>@Casa.Ubicacion</td>
+                <td>@Casa.Descripcion</td>
+                <td>@Casa.Dueño</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>Use this area to provide additional information.</p>

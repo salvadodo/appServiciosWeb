@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="registrosDueños">
+        <s:complexType />
+      </s:element>
+      <s:element name="registrosDueñosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="registrosDueñosResult" type="tns:ArrayOfDueños" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDueños">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Dueños" nillable="true" type="tns:Dueños" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Dueños">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idDueño" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Edad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Casas" type="tns:ArrayOfCasas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCasas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Casas" nillable="true" type="tns:Casas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Casas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idCasa" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipodeCasa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ubicacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Dueño" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dueños" type="tns:Dueños" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="seleccionarDueño">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarDueñoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seleccionarDueñoResult" type="tns:Dueños" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarDueño">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insDueño" type="tns:Dueños" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarDueñoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertarDueñoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarDueño">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modDueño" type="tns:Dueños" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarDueñoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarDueñoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarDueño">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eliDueño" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarDueñoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eliminarDueñoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="registrosDueñosSoapIn">
+    <wsdl:part name="parameters" element="tns:registrosDueños" />
+  </wsdl:message>
+  <wsdl:message name="registrosDueñosSoapOut">
+    <wsdl:part name="parameters" element="tns:registrosDueñosResponse" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarDueñoSoapIn">
+    <wsdl:part name="parameters" element="tns:seleccionarDueño" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarDueñoSoapOut">
+    <wsdl:part name="parameters" element="tns:seleccionarDueñoResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarDueñoSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarDueño" />
+  </wsdl:message>
+  <wsdl:message name="insertarDueñoSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarDueñoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarDueñoSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarDueño" />
+  </wsdl:message>
+  <wsdl:message name="ModificarDueñoSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarDueñoResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminarDueñoSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarDueño" />
+  </wsdl:message>
+  <wsdl:message name="eliminarDueñoSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarDueñoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="servicioAsmxDueñosSoap">
+    <wsdl:operation name="registrosDueños">
+      <wsdl:input message="tns:registrosDueñosSoapIn" />
+      <wsdl:output message="tns:registrosDueñosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarDueño">
+      <wsdl:input message="tns:seleccionarDueñoSoapIn" />
+      <wsdl:output message="tns:seleccionarDueñoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarDueño">
+      <wsdl:input message="tns:insertarDueñoSoapIn" />
+      <wsdl:output message="tns:insertarDueñoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarDueño">
+      <wsdl:input message="tns:ModificarDueñoSoapIn" />
+      <wsdl:output message="tns:ModificarDueñoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarDueño">
+      <wsdl:input message="tns:eliminarDueñoSoapIn" />
+      <wsdl:output message="tns:eliminarDueñoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="servicioAsmxDueñosSoap" type="tns:servicioAsmxDueñosSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="registrosDueños">
+      <soap:operation soapAction="http://tempuri.org/registrosDueños" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarDueño">
+      <soap:operation soapAction="http://tempuri.org/seleccionarDueño" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarDueño">
+      <soap:operation soapAction="http://tempuri.org/insertarDueño" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarDueño">
+      <soap:operation soapAction="http://tempuri.org/ModificarDueño" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarDueño">
+      <soap:operation soapAction="http://tempuri.org/eliminarDueño" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="servicioAsmxDueñosSoap12" type="tns:servicioAsmxDueñosSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="registrosDueños">
+      <soap12:operation soapAction="http://tempuri.org/registrosDueños" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarDueño">
+      <soap12:operation soapAction="http://tempuri.org/seleccionarDueño" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarDueño">
+      <soap12:operation soapAction="http://tempuri.org/insertarDueño" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarDueño">
+      <soap12:operation soapAction="http://tempuri.org/ModificarDueño" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarDueño">
+      <soap12:operation soapAction="http://tempuri.org/eliminarDueño" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="servicioAsmxDueños">
+    <wsdl:port name="servicioAsmxDueñosSoap" binding="tns:servicioAsmxDueñosSoap">
+      <soap:address location="https://localhost:44349/servicioAsmxDueños.asmx" />
+    </wsdl:port>
+    <wsdl:port name="servicioAsmxDueñosSoap12" binding="tns:servicioAsmxDueñosSoap12">
+      <soap12:address location="https://localhost:44349/servicioAsmxDueños.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

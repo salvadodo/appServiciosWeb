@@ -1,0 +1,41 @@
+﻿@model List<serviciosWebDatos.Models.Casas>
+@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>IdCasa</td>
+            <td>Tipo de Casa</td>
+            <td>Ubicación</td>
+            <td>Descripción</td>
+            <td>Dueño</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Casa in Model)
+        {
+            <tr>
+                <td>@Casa.idCasa</td>
+                <td>@Casa.tipodeCasa</td>
+                <td>@Casa.Ubicacion</td>
+                <td>@Casa.Descripcion</td>
+                <td>@Casa.Dueño</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<address>
+    One Microsoft Way<br />
+    Redmond, WA 98052-6399<br />
+    <abbr title="Phone">P:</abbr>
+    425.555.0100
+</address>
+
+<address>
+    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
+</address>

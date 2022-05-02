@@ -1,0 +1,31 @@
+﻿@model servicioWebNegocios.Casas
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div class="form-group">
+    <label>idCasa: </label>
+    @Model.idCasa
+</div>
+<div class="form-group">
+    <label>tipodeCasa: </label>
+    @Model.tipodeCasa
+</div>
+<div class="form-group">
+    <label>Ubicacion: </label>
+    @Model.Ubicacion
+</div>
+<div class="form-group">
+    <label>Descripcion: </label>
+    @Model.Descripcion
+</div>
+<div class="form-group">
+    <label>Dueño: </label>
+    @Model.Dueño
+</div>
+<div class="form-group">
+    <a href="@Url.Action("Index", "Casas")">Regresar</a>
+</div>
+

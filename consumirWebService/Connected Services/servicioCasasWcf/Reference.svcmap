@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="d94dbb12-7782-48ec-b3a5-c082c76d5c61" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52989/servicioWcfCasas.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="servicioWcfCasas.xsd" MetadataType="Schema" ID="efc23561-6e0a-4efd-badc-ec98ced5a1cd" SourceId="1" SourceUrl="http://localhost:52989/servicioWcfCasas.svc?xsd=xsd1" />
+    <MetadataFile FileName="servicioWcfCasas1.xsd" MetadataType="Schema" ID="9cfdf6f9-4895-4b90-a1be-607bc17a6753" SourceId="1" SourceUrl="http://localhost:52989/servicioWcfCasas.svc?xsd=xsd2" />
+    <MetadataFile FileName="servicioWcfCasas.wsdl" MetadataType="Wsdl" ID="e75b4d0d-5aac-4c4b-94e3-6b13de038e50" SourceId="1" SourceUrl="http://localhost:52989/servicioWcfCasas.svc?wsdl" />
+    <MetadataFile FileName="servicioWcfCasas2.xsd" MetadataType="Schema" ID="20fe27f7-399a-4353-ac43-30d01fbfba5e" SourceId="1" SourceUrl="http://localhost:52989/servicioWcfCasas.svc?xsd=xsd0" />
+    <MetadataFile FileName="servicioWcfCasas.disco" MetadataType="Disco" ID="312fbcfc-c302-4ece-a85a-e4f34f0aa058" SourceId="1" SourceUrl="http://localhost:52989/servicioWcfCasas.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

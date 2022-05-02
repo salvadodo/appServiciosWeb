@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="registrosCasas">
+        <s:complexType />
+      </s:element>
+      <s:element name="registrosCasasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="registrosCasasResult" type="tns:ArrayOfCasas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCasas">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Casas" nillable="true" type="tns:Casas" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Casas">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idCasa" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="tipodeCasa" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ubicacion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descripcion" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Dueño" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dueños" type="tns:Dueños" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Dueños">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="idDueño" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Edad" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Casas" type="tns:ArrayOfCasas" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="seleccionarCasa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="seleccionarCasaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="seleccionarCasaResult" type="tns:Casas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarCasa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="insCasa" type="tns:Casas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="insertarCasaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="insertarCasaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarCasa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modCasas" type="tns:Casas" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificarCasaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ModificarCasaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarCasa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eliCasa" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="eliminarCasaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="eliminarCasaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="registrosCasasSoapIn">
+    <wsdl:part name="parameters" element="tns:registrosCasas" />
+  </wsdl:message>
+  <wsdl:message name="registrosCasasSoapOut">
+    <wsdl:part name="parameters" element="tns:registrosCasasResponse" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarCasaSoapIn">
+    <wsdl:part name="parameters" element="tns:seleccionarCasa" />
+  </wsdl:message>
+  <wsdl:message name="seleccionarCasaSoapOut">
+    <wsdl:part name="parameters" element="tns:seleccionarCasaResponse" />
+  </wsdl:message>
+  <wsdl:message name="insertarCasaSoapIn">
+    <wsdl:part name="parameters" element="tns:insertarCasa" />
+  </wsdl:message>
+  <wsdl:message name="insertarCasaSoapOut">
+    <wsdl:part name="parameters" element="tns:insertarCasaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCasaSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificarCasa" />
+  </wsdl:message>
+  <wsdl:message name="ModificarCasaSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificarCasaResponse" />
+  </wsdl:message>
+  <wsdl:message name="eliminarCasaSoapIn">
+    <wsdl:part name="parameters" element="tns:eliminarCasa" />
+  </wsdl:message>
+  <wsdl:message name="eliminarCasaSoapOut">
+    <wsdl:part name="parameters" element="tns:eliminarCasaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="servicioAsmxCasasSoap">
+    <wsdl:operation name="registrosCasas">
+      <wsdl:input message="tns:registrosCasasSoapIn" />
+      <wsdl:output message="tns:registrosCasasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarCasa">
+      <wsdl:input message="tns:seleccionarCasaSoapIn" />
+      <wsdl:output message="tns:seleccionarCasaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="insertarCasa">
+      <wsdl:input message="tns:insertarCasaSoapIn" />
+      <wsdl:output message="tns:insertarCasaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCasa">
+      <wsdl:input message="tns:ModificarCasaSoapIn" />
+      <wsdl:output message="tns:ModificarCasaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="eliminarCasa">
+      <wsdl:input message="tns:eliminarCasaSoapIn" />
+      <wsdl:output message="tns:eliminarCasaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="servicioAsmxCasasSoap" type="tns:servicioAsmxCasasSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="registrosCasas">
+      <soap:operation soapAction="http://tempuri.org/registrosCasas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarCasa">
+      <soap:operation soapAction="http://tempuri.org/seleccionarCasa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarCasa">
+      <soap:operation soapAction="http://tempuri.org/insertarCasa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCasa">
+      <soap:operation soapAction="http://tempuri.org/ModificarCasa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarCasa">
+      <soap:operation soapAction="http://tempuri.org/eliminarCasa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="servicioAsmxCasasSoap12" type="tns:servicioAsmxCasasSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="registrosCasas">
+      <soap12:operation soapAction="http://tempuri.org/registrosCasas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="seleccionarCasa">
+      <soap12:operation soapAction="http://tempuri.org/seleccionarCasa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="insertarCasa">
+      <soap12:operation soapAction="http://tempuri.org/insertarCasa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarCasa">
+      <soap12:operation soapAction="http://tempuri.org/ModificarCasa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="eliminarCasa">
+      <soap12:operation soapAction="http://tempuri.org/eliminarCasa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="servicioAsmxCasas">
+    <wsdl:port name="servicioAsmxCasasSoap" binding="tns:servicioAsmxCasasSoap">
+      <soap:address location="https://localhost:44349/servicioAsmxCasas.asmx" />
+    </wsdl:port>
+    <wsdl:port name="servicioAsmxCasasSoap12" binding="tns:servicioAsmxCasasSoap12">
+      <soap12:address location="https://localhost:44349/servicioAsmxCasas.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,37 @@
+﻿@model List<servicioWebNegocios.Casas>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<a href="@Url.Action("Nuevo", "Casas")" class="btn btn-primary">Nuevo</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>IdCasa</td>
+            <td>Tipo de Casa</td>
+            <td>Ubicación</td>
+            <td>Descripción</td>
+            <td>Dueño</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Casa in Model)
+        {
+            <tr>
+                <td>@Casa.idCasa</td>
+                <td>@Casa.tipodeCasa</td>
+                <td>@Casa.Ubicacion</td>
+                <td>@Casa.Descripcion</td>
+                <td>@Casa.Dueño</td>
+                <td>
+                    <a href="@Url.Action("Actualizar", "Casas", new {id=Casa.idCasa})" class="btn btn-success">Actualizar</a>
+                    <a href="@Url.Action("Eliminar", "Casas", new {id=Casa.idCasa})" class="btn btn-danger">Eliminar</a>
+                    <a href="@Url.Action("Detalle", "Casas", new {id=Casa.idCasa})" class="btn btn-default">Ver Detalle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

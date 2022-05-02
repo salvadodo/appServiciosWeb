@@ -1,0 +1,29 @@
+﻿@model servicioWebNegocios.Casas
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>Nueva Casa</h2>
+<form method="post" action="@Url.Action("Nuevo", "Casas")">
+    <div class="form-group">
+        <label>Tipo de Casa</label>
+        @Html.TextBoxFor(x => x.tipodeCasa, new { @class="form-control" })
+    </div>
+    <div class="form-group">
+        <label>Ubicación</label>
+        @Html.TextBoxFor(x => x.Ubicacion, new { @class="form-control" })
+    </div>
+    <div class="form-group">
+        <label>Descripción</label>
+        @Html.TextBoxFor(x => x.Descripcion, new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        <label>Dueño</label>
+        @Html.TextBoxFor(x => x.Dueño, new { @class="form-control"})
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-success" value="Enviar"/>
+        <a href="@Url.Action("Index", "Casas")">Regresar</a>
+    </div>
+</form>
+
